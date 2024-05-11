@@ -48,7 +48,7 @@
 	const copyToClipboardWithToast = async (text) => {
 		const res = await copyToClipboard(text);
 		if (res) {
-			toast.success($i18n.t('Copying to clipboard was successful!'));
+			toast.success($i18n.t('Copied to clipboardf!'));
 		}
 	};
 
