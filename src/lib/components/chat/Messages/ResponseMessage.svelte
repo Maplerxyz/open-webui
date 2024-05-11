@@ -340,17 +340,19 @@
 
 		<div class="w-full overflow-hidden">
 			<Name>
-				{#if message.model in modelfiles}
-					{modelfiles[message.model]?.title}
-				{:else}
-					{message.model ? ` ${message.model}` : ''}
-				{/if}
-
-				{#if message.timestamp}
-					<span class=" invisible group-hover:visible text-gray-400 text-xs font-medium">
-						{dayjs(message.timestamp * 1000).format($i18n.t('DD/MM/YYYY HH:mm'))}
-					</span>
-				{/if}
+			  AiChat
+			  {#if message.model in modelfiles}
+			    <span class="text-gray-400">@ {modelfiles[message.model]?.title}</span>
+			  {:else}
+			    {#if message.model}
+			      <span class="text-gray-400">@ {message.model}</span>
+			    {/if}
+			  {/if}
+			  {#if message.timestamp}
+			    <span class="invisible group-hover:visible text-gray-400 text-xs font-medium">
+			      {dayjs(message.timestamp * 1000).format($i18n.t('DD/MM/YYYY HH:mm'))}
+			    </span>
+			  {/if}
 			</Name>
 
 			{#if message.files}
